@@ -3,8 +3,7 @@
 
 char **separate_line(char *line)
 {
-	char *elements[100];
-	char **p = elements;
+	char **elements = malloc(sizeof(char *) *1024);
 	int i = 0;
 
 	elements[i] = strtok(line, DELIM);
@@ -13,5 +12,6 @@ char **separate_line(char *line)
 		i++;
 		elements[i] = strtok(NULL, DELIM);
 	}
-	return (p);
+	elements[i + 1] = NULL;
+	return (elements);
 }

@@ -39,6 +39,7 @@ int main(int argc, char *argv[])
 		elements = separate_line(line);
 		while (elements[i])
 			printf("%s\n", elements[i++]);
+		free_dlist(elements);
 		free_list(line);
 	} while (1);
 	free_list(line);
