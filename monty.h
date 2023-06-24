@@ -8,6 +8,9 @@
 void free_dlist(char **elements);
 void free_list(char *list);
 char **separate_line(char *line);
+void push(stack_t **stack, unsigned int line_number);
+void pull(stack_t **stack, unsigned int line_number);
+void use_func(char **elements, int l);
 
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
@@ -38,5 +41,7 @@ typedef struct instruction_s
         char *opcode;
         void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+
+extern stack_t **stack;
 
 #endif

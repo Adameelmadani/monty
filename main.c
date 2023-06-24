@@ -1,6 +1,8 @@
 #include "monty.h"
 #define LINE_SIZE 1024
 
+stack_t **temp;
+
 /**
   * main - main function
   * @argv: arg vector
@@ -12,7 +14,7 @@ int main(int argc, char *argv[])
 	FILE *file;
 	char *line;
 	char **elements;
-	int i;
+	int i, l = 1;
 
 	if (argc != 2)
 	{
@@ -37,10 +39,10 @@ int main(int argc, char *argv[])
 		if (feof(file))
 			break;
 		elements = separate_line(line);
-		while (elements[i])
-			printf("%s\n", elements[i++]);
+		use_func(elements, l);
 		free_dlist(elements);
 		free_list(line);
+		l++;
 	} while (1);
 	free_list(line);
 	fclose(file);
