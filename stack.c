@@ -73,18 +73,22 @@ void use_func(char **elements, int l)
 			{
 				if (!elements[1])
 				{
-					printf("L%d: usage: push integer\n", l);
+					fprintf(stderr, "L%d: usage: push integer\n", l);
 					exit(EXIT_FAILURE);
 				}
 				n = atoi(elements[1]);
 				if (n == 0 && strcmp(elements[1], "0") != 0)
 				{
-					printf("L%d: usage: push integer\n", l);
+					fprintf(stderr, "L%d: usage: push integer\n", l);
 					exit(EXIT_FAILURE);
 				}
 				instr_list[i].f(&temp, n);
 			} else
 				instr_list[i].f(&temp, n);
+		} else
+		{
+			fprintf(stderr, "L%d: unknown instruction %s\n", l, elements[0]);
+			exit(EXIT_FAILURE);
 		}
 	}
 }

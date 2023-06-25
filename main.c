@@ -31,7 +31,7 @@ int main(int argc, char *argv[])
 		line = malloc(sizeof(char) * LINE_SIZE);
 		if (!line)
 		{
-			fprintf(stderr, "USAGE: monty file\n");
+			fprintf(stderr, "Error: malloc failed\n");
 			exit(EXIT_FAILURE);
 		}
 		fgets(line, LINE_SIZE, file);
