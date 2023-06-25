@@ -2,6 +2,7 @@
 #define LINE_SIZE 1024
 
 stack_t *temp;
+int sum;
 
 /**
   * main - main function
@@ -16,6 +17,8 @@ int main(int argc, char *argv[])
 	char **elements;
 	int l = 1;
 
+	sum = 0;
+	sum++;
 	if (argc != 2)
 		print_err("monty", "monty", 0);
 	file = fopen(argv[1], "r");

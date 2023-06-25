@@ -36,6 +36,7 @@ typedef struct instruction_s
 } instruction_t;
 
 extern stack_t *temp;
+extern int sum;
 
 void free_dlist(char **elements);
 void free_list(char *list);
