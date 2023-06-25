@@ -1,25 +1,27 @@
 #include "monty.h"
 
+int data;
+
 /**
   * push - push
   * @stack: stack
   * @line_number: line_number
   */
-void push(stack_t **stack, int line_number)
+void push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new_node = malloc(sizeof(stack_t));
 
 	if (new_node == NULL)
-		print_err("malloc", "malloc", 0);
+		print_err("malloc", "malloc", line_number);
 	if (*stack == NULL)
 	{
-		new_node->n = line_number;
+		new_node->n = data;
 		new_node->next = NULL;
 		new_node->prev = NULL;
 		*stack = new_node;
 	} else
 	{
-		new_node->n = line_number;
+		new_node->n = data;
 		new_node->next = *stack;
 		new_node->prev = NULL;
 		*stack = new_node;
@@ -31,7 +33,7 @@ void push(stack_t **stack, int line_number)
   * @stack: stack
   * @line_number: line_number
   */
-void pall(stack_t **stack, int line_number)
+void pall(stack_t **stack, unsigned int line_number)
 {
 	stack_t *node = *stack;
 
@@ -49,7 +51,7 @@ void pall(stack_t **stack, int line_number)
   * @elements: elements
   * @l: l
   */
-void use_func(char **elements, int l)
+void use_func(char **elements, unsigned int l)
 {
 	instruction_t instr_list[] = {
 		{"push", push},
@@ -72,11 +74,13 @@ void use_func(char **elements, int l)
 				n = atoi(elements[1]);
 				if (n == 0 && strcmp(elements[1], "0") != 0)
 					print_err("push", "push", l);
-				instr_list[i].f(&temp, n);
+				data = n;
+				instr_list[i].f(&temp, l);
 				a = -1;
 			} else
 			{
-				instr_list[i].f(&temp, n);
+				data = n;
+				instr_list[i].f(&temp, l);
 				a = -1;
 			}
 		}

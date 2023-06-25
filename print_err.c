@@ -6,7 +6,7 @@
   * @argv: argv
   * @l: l
   */
-void print_err(char *str, char *argv, int l)
+void print_err(char *str, char *argv, unsigned int l)
 {
 	if (strcmp(str, "monty") == 0)
 	{
