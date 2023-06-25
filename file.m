@@ -1,4 +1,2 @@
-push 0 dfjdfk kdfdf kdfjdf 
-push 1 kdfjdkfd dkfjd
-push 2
-pall dkfjdkfj ekfje dkfkdfdlf dlf dfdf
+push -1024 + push 123a
+pall
