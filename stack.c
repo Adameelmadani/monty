@@ -5,7 +5,7 @@
   * @stack: stack
   * @line_number: line_number
   */
-void push(stack_t **stack, unsigned int line_number)
+void push(stack_t **stack, int line_number)
 {
 	stack_t *new_node = malloc(sizeof(stack_t));
 
@@ -31,7 +31,7 @@ void push(stack_t **stack, unsigned int line_number)
   * @stack: stack
   * @line_number: line_number
   */
-void pall(stack_t **stack, unsigned int line_number)
+void pall(stack_t **stack, int line_number)
 {
 	stack_t *node = *stack;
 

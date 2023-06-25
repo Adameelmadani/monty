@@ -32,7 +32,7 @@ typedef struct stack_s
 typedef struct instruction_s
 {
 	char *opcode;
-	void (*f)(stack_t **stack, unsigned int line_number);
+	void (*f)(stack_t **stack, int line_number);
 } instruction_t;
 
 extern stack_t *temp;
@@ -40,8 +40,8 @@ extern stack_t *temp;
 void free_dlist(char **elements);
 void free_list(char *list);
 char **separate_line(char *line);
-void push(stack_t **stack, unsigned int line_number);
-void pull(stack_t **stack, unsigned int line_number);
+void push(stack_t **stack, int line_number);
+void pull(stack_t **stack, int line_number);
 void use_func(char **elements, int l);
 void free_stack(void);
 void print_err(char *str, char *argv, int l);
