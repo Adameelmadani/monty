@@ -54,21 +54,9 @@ void pall(stack_t **stack, unsigned int line_number)
   */
 void pint(stack_t **stack, unsigned int line_number)
 {
-	stack_t *node = *stack;
-	stack_t *s_node = *stack;
-
 	if ((*stack) == NULL)
 		print_err("pint", "pint", line_number);
-	while (node)
-	{
-		s_node = node;
-		node = node->next;
-	}
-	while (s_node)
-	{
-		printf("%d\n", s_node->n);
-		s_node = s_node->prev;
-	}
+	printf("%d\n", (*stack)->n);
 }
 
 /**
