@@ -60,6 +60,30 @@ void pint(stack_t **stack, unsigned int line_number)
 }
 
 /**
+  * pop - pop
+  * @stack: stack
+  * @line_number: l
+  */
+void pop(stack_t **stack, unsigned int line_number)
+{
+	stack_t *node;
+
+	if ((*stack) == NULL)
+		print_err("pop", "pop", line_number);
+	if ((*stack)->next == NULL)
+	{
+		free(*stack);
+		*stack = NULL;
+	} else
+	{
+		node = (*stack)->next;
+		node->prev = NULL;
+		free(*stack);
+		*stack = node;
+	}
+}
+
+/**
   * use_func - use_func
   * @elements: elements
   * @l: l
@@ -69,7 +93,8 @@ void use_func(char **elements, unsigned int l)
 	instruction_t instr_list[] = {
 		{"push", push},
 		{"pall", pall},
-		{"pint", pint}
+		{"pint", pint},
+		{"pop", pop}
 	};
 	int i = 0, n = 0, a = 0;
 
@@ -77,7 +102,7 @@ void use_func(char **elements, unsigned int l)
 		return;
 	if (!elements[0])
 		return;
-	for (i = 0; i < 3; i++)
+	for (i = 0; i < 4; i++)
 	{
 		if (strcmp(elements[0], instr_list[i].opcode) == 0)
 		{
