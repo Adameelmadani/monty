@@ -58,8 +58,7 @@ void use_func(char **elements, int l)
 		{"push", push},
 		{"pall", pall}
 	};
-	int i = 0;
-	int n = 0;
+	int i = 0, a = 0, n = 0;
 
 	if (!elements)
 		return;
@@ -83,12 +82,17 @@ void use_func(char **elements, int l)
 					exit(EXIT_FAILURE);
 				}
 				instr_list[i].f(&temp, n);
+				a = -1;
 			} else
+			{
 				instr_list[i].f(&temp, n);
-		} else
-		{
-			fprintf(stderr, "L%d: unknown instruction %s\n", l, elements[0]);
-			exit(EXIT_FAILURE);
+				a = -1;
+			}
 		}
+	}
+	if (a == 0)
+	{
+		fprintf(stderr, "L%d: unknown instruction %s\n", l, elements[0]);
+		exit(EXIT_FAILURE);
 	}
 }
