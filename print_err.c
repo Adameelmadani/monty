@@ -28,5 +28,9 @@ void print_err(char *str, char *argv, unsigned int l)
 	{
 		fprintf(stderr, "L%d: unknown instruction %s\n", l, argv);
 		exit(EXIT_FAILURE);
+	} else if (strcmp(str, "pint") == 0)
+	{
+		fprintf(stderr, "L%d: can't pint, stack empty\n", l);
+		exit(EXIT_FAILURE);
 	}
 }

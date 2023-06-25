@@ -21,6 +21,7 @@ void push(stack_t **stack, unsigned int line_number)
 		*stack = new_node;
 	} else
 	{
+		(*stack)->prev = new_node;
 		new_node->n = data;
 		new_node->next = *stack;
 		new_node->prev = NULL;
@@ -47,6 +48,30 @@ void pall(stack_t **stack, unsigned int line_number)
 }
 
 /**
+  * pint - pint
+  * @stack: stack
+  * @line_number: line number
+  */
+void pint(stack_t **stack, unsigned int line_number)
+{
+	stack_t *node = *stack;
+	stack_t *s_node = *stack;
+
+	if ((*stack) == NULL)
+		print_err("pint", "pint", line_number);
+	while (node)
+	{
+		s_node = node;
+		node = node->next;
+	}
+	while (s_node)
+	{
+		printf("%d\n", s_node->n);
+		s_node = s_node->prev;
+	}
+}
+
+/**
   * use_func - use_func
   * @elements: elements
   * @l: l
@@ -55,7 +80,8 @@ void use_func(char **elements, unsigned int l)
 {
 	instruction_t instr_list[] = {
 		{"push", push},
-		{"pall", pall}
+		{"pall", pall},
+		{"pint", pint}
 	};
 	int i = 0, n = 0, a = 0;
 
@@ -63,7 +89,7 @@ void use_func(char **elements, unsigned int l)
 		return;
 	if (!elements[0])
 		return;
-	for (i = 0; i < 2; i++)
+	for (i = 0; i < 3; i++)
 	{
 		if (strcmp(elements[0], instr_list[i].opcode) == 0)
 		{
