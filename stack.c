@@ -10,10 +10,7 @@ void push(stack_t **stack, unsigned int line_number)
 	stack_t *new_node = malloc(sizeof(stack_t));
 
 	if (new_node == NULL)
-	{
-		fprintf(stderr, "Error: malloc failed\n");
-		exit(EXIT_FAILURE);
-	}
+		print_err("malloc", "malloc", 0);
 	if (*stack == NULL)
 	{
 		new_node->n = line_number;
@@ -58,7 +55,7 @@ void use_func(char **elements, int l)
 		{"push", push},
 		{"pall", pall}
 	};
-	int i = 0, n = 0;
+	int i = 0, n = 0, a = 0;
 
 	if (!elements)
 		return;
@@ -71,23 +68,19 @@ void use_func(char **elements, int l)
 			if (strcmp(elements[0], "push") == 0)
 			{
 				if (!elements[1])
-				{
-					fprintf(stderr, "L%d: usage: push integer\n", l);
-					exit(EXIT_FAILURE);
-				}
+					print_err("push", "push", l);
 				n = atoi(elements[1]);
 				if (n == 0 && strcmp(elements[1], "0") != 0)
-				{
-					fprintf(stderr, "L%d: usage: push integer\n", l);
-					exit(EXIT_FAILURE);
-				}
+					print_err("push", "push", l);
 				instr_list[i].f(&temp, n);
+				a = -1;
 			} else
+			{
 				instr_list[i].f(&temp, n);
-		} else if (i == 1)
-		{
-			fprintf(stderr, "L%d: unknown instruction %s\n", l, elements[0]);
-			exit(EXIT_FAILURE);
+				a = -1;
+			}
 		}
 	}
+	if (a == 0)
+		print_err("unknown", elements[0], l);
 }

@@ -12,10 +12,7 @@ char **separate_line(char *line)
 	int i = 0;
 
 	if (!elements)
-	{
-		fprintf(stderr, "USAGE: monty file\n");
-		exit(EXIT_FAILURE);
-	}
+		print_err("monty", "monty", 0);
 	elements[i] = strtok(line, DELIM);
 	while (elements[i])
 	{
