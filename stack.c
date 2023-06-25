@@ -1,5 +1,10 @@
 #include "monty.h"
 
+/**
+  * push - push
+  * @stack: stack
+  * @line_number: line_number
+  */
 void push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new_node = malloc(sizeof(stack_t));
@@ -24,25 +29,35 @@ void push(stack_t **stack, unsigned int line_number)
 	}
 }
 
+/**
+  * pall - pall
+  * @stack: stack
+  * @line_number: line_number
+  */
 void pall(stack_t **stack, unsigned int line_number)
 {
-	stack_t node = *stack;
+	stack_t *node = *stack;
 
 	line_number++;
 	while (*stack)
 	{
-		printf("%d\n",(*stack)->n);
+		printf("%d\n", (*stack)->n);
 		*stack = (*stack)->next;
 	}
 	*stack = node;
 }
 
+/**
+  * use_func - use_func
+  * @elements: elements
+  * @l: l
+  */
 void use_func(char **elements, int l)
 {
 	instruction_t instr_list[] = {
 		{"push", push},
-		{"pall", pall},
-	}
+		{"pall", pall}
+	};
 	int i = 0;
 	int n = 0;
 
@@ -52,7 +67,7 @@ void use_func(char **elements, int l)
 		return;
 	for (i = 0; i < 2; i++)
 	{
-		if (strcmp(elements[0], instr_list[i]) == 0)
+		if (strcmp(elements[0], instr_list[i].opcode) == 0)
 		{
 			if (strcmp(elements[0], "push") == 0)
 			{
@@ -67,9 +82,9 @@ void use_func(char **elements, int l)
 					printf("L%d: usage: push integer\n", l);
 					exit(EXIT_FAILURE);
 				}
-				instr_list[i].f(temp, n);
-			}else
-				instr_list[i].f(temp, n);
+				instr_list[i].f(&temp, n);
+			} else
+				instr_list[i].f(&temp, n);
 		}
 	}
 }

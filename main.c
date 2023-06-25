@@ -1,7 +1,7 @@
 #include "monty.h"
 #define LINE_SIZE 1024
 
-stack_t **temp;
+stack_t *temp;
 
 /**
   * main - main function
@@ -14,7 +14,7 @@ int main(int argc, char *argv[])
 	FILE *file;
 	char *line;
 	char **elements;
-	int i, l = 1;
+	int l = 1;
 
 	if (argc != 2)
 	{
@@ -34,7 +34,6 @@ int main(int argc, char *argv[])
 			fprintf(stderr, "USAGE: monty file\n");
 			exit(EXIT_FAILURE);
 		}
-		i = 0;
 		fgets(line, LINE_SIZE, file);
 		if (feof(file))
 			break;
@@ -44,6 +43,7 @@ int main(int argc, char *argv[])
 		free_list(line);
 		l++;
 	} while (1);
+	free_stack();
 	free_list(line);
 	fclose(file);
 	return (0);

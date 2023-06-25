@@ -19,3 +19,20 @@ void free_list(char *list)
 	if (list)
 		free(list);
 }
+
+/**
+  * free_stack - free stack
+  */
+void free_stack(void)
+{
+	stack_t *node = temp;
+	stack_t *s_temp = temp;
+
+	while (temp)
+	{
+		s_temp = temp->next;
+		free(temp);
+		temp = s_temp;
+	}
+	temp = node;
+}
