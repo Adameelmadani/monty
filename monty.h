@@ -52,5 +52,7 @@ void use_func(char **elements, unsigned int l);
 void free_stack(void);
 void print_err(char *str, char *argv, unsigned int l);
 int is_int(char *number, unsigned int l);
+void sub(stack_t **stack, unsigned int line_number);
+void mul(stack_t **stack, unsigned int line_number);
 
 #endif
