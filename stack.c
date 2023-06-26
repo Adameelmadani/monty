@@ -91,22 +91,17 @@ void pop(stack_t **stack, unsigned int line_number)
 void use_func(char **elements, unsigned int l)
 {
 	instruction_t instr_list[] = {
-		{"push", push},
-		{"pall", pall},
-		{"pint", pint},
-		{"pop", pop},
-		{"swap", swap},
-		{"add", add},
-		{"nop", nop},
-		{"sub", sub},
-		{"mul", mul},
-		{"div", dive}, {"mod", mod}
+		{"push", push}, {"pall", pall}, {"pint", pint}, {"pop", pop},
+		{"swap", swap}, {"add", add}, {"nop", nop}, {"sub", sub},
+		{"mul", mul}, {"div", dive}, {"mod", mod}
 	};
-	int i = 0, n = 0, a = 0;
+	int i = 0, a = 0;
 
 	if (!elements)
 		return;
 	if (!elements[0])
+		return;
+	if (elements[0][0] == '#')
 		return;
 	for (i = 0; i < 11; i++)
 	{
@@ -116,13 +111,11 @@ void use_func(char **elements, unsigned int l)
 			{
 				if (!elements[1])
 					print_err("push", "push", l);
-				n = is_int(elements[1], l);
-				data = n;
+				data = is_int(elements[1], l);
 				instr_list[i].f(&temp, l);
 				a = -1;
 			} else
 			{
-				data = n;
 				instr_list[i].f(&temp, l);
 				a = -1;
 			}
