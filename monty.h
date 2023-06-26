@@ -54,5 +54,7 @@ void print_err(char *str, char *argv, unsigned int l);
 int is_int(char *number, unsigned int l);
 void sub(stack_t **stack, unsigned int line_number);
 void mul(stack_t **stack, unsigned int line_number);
+void dive(stack_t **stack, unsigned int line_number);
+void mod(stack_t **stack, unsigned int line_number);
 
 #endif

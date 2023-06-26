@@ -30,5 +30,11 @@ void print_err(char *str, char *argv, unsigned int l)
 		fprintf(stderr, "L%d: can't sub, stack too short\n", l);
 	else if (strcmp(str, "mul") == 0)
 		fprintf(stderr, "L%d: can't mul, stack too short\n", l);
+	else if (strcmp(str, "div") == 0)
+		fprintf(stderr, "L%d: can't div, stack too short\n", l);
+	else if (strcmp(str, "div zero") == 0)
+		fprintf(stderr, "L%d: division by zero\n", l);
+	else if (strcmp(str, "mod") == 0)
+		fprintf(stderr, "L%d: can't mod, stack too short\n", l);
 	exit(EXIT_FAILURE);
 }
