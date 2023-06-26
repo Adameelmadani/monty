@@ -113,9 +113,7 @@ void use_func(char **elements, unsigned int l)
 			{
 				if (!elements[1])
 					print_err("push", "push", l);
-				n = atoi(elements[1]);
-				if (n == 0 && strcmp(elements[1], "0") != 0)
-					print_err("push", "push", l);
+				n = is_int(elements[1], l);
 				data = n;
 				instr_list[i].f(&temp, l);
 				a = -1;
