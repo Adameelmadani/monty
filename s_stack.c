@@ -31,3 +31,27 @@ void swap(stack_t **stack, unsigned int line_number)
 		(node->next)->prev = node;
 	}
 }
+
+/**
+  * add - add two top elements
+  * @stack: stack
+  * @line_number: line number
+  */
+void add(stack_t **stack, unsigned int line_number)
+{
+	stack_t *node = *stack;
+	int i = 0;
+
+	while (node)
+	{
+		node = node->next;
+		i++;
+		if (i == 2)
+			break;
+	}
+	if (i != 2)
+		print_err("add", "add", line_number);
+	i = (*stack)->n;
+	pop(stack, line_number);
+	(*stack)->n = (*stack)->n + i;
+}
