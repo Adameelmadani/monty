@@ -45,6 +45,7 @@ void push(stack_t **stack, unsigned int line_number);
 void pull(stack_t **stack, unsigned int line_number);
 void pint(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
+void swap(stack_t **stack, unsigned int line_number);
 void use_func(char **elements, unsigned int l);
 void free_stack(void);
 void print_err(char *str, char *argv, unsigned int l);

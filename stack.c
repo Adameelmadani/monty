@@ -94,7 +94,8 @@ void use_func(char **elements, unsigned int l)
 		{"push", push},
 		{"pall", pall},
 		{"pint", pint},
-		{"pop", pop}
+		{"pop", pop},
+		{"swap", swap}
 	};
 	int i = 0, n = 0, a = 0;
 
@@ -102,7 +103,7 @@ void use_func(char **elements, unsigned int l)
 		return;
 	if (!elements[0])
 		return;
-	for (i = 0; i < 4; i++)
+	for (i = 0; i < 5; i++)
 	{
 		if (strcmp(elements[0], instr_list[i].opcode) == 0)
 		{
