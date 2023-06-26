@@ -47,6 +47,7 @@ void pint(stack_t **stack, unsigned int line_number);
 void pop(stack_t **stack, unsigned int line_number);
 void swap(stack_t **stack, unsigned int line_number);
 void add(stack_t **stack, unsigned int line_number);
+void nop(stack_t **stack, unsigned int line_number);
 void use_func(char **elements, unsigned int l);
 void free_stack(void);
 void print_err(char *str, char *argv, unsigned int l);
