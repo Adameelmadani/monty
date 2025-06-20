@@ -2,7 +2,7 @@
 
 ![C Language](https://img.shields.io/badge/Language-C-blue)
 ![License](https://img.shields.io/badge/License-MIT-green)
-![Monty Logo](https://i.imgur.com/1azREoT.png)
+[![Documentation Status](https://readthedocs.org/projects/monty/badge/?version=latest)](https://monty.readthedocs.io/en/latest/?badge=latest)
 
 ## Description
 
