@@ -1,8 +1,6 @@
 # Monty ByteCode Interpreter
 
 ![C Language](https://img.shields.io/badge/Language-C-blue)
-![License](https://img.shields.io/badge/License-MIT-green)
-[![Documentation Status](https://readthedocs.org/projects/monty/badge/?version=latest)](https://monty.readthedocs.io/en/latest/?badge=latest)
 
 ## Description
 
@@ -16,8 +14,6 @@ The Monty ByteCode Interpreter is a program that executes Monty ByteCode files. 
 - [Project Structure](#project-structure)
 - [Features](#features)
 - [Examples](#examples)
-- [Authors](#authors)
-- [License](#license)
 
 ## Installation
 
@@ -121,11 +117,3 @@ $ ./monty bytecodes/07.m
 1
 
 ```
-
-## Authors
-
-- [@Adameelmadani](https://github.com/Adameelmadani)
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
