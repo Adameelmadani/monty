@@ -115,5 +115,4 @@ $ ./monty bytecodes/07.m
 2
 1
 1
-
 ```
